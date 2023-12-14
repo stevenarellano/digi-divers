@@ -33,3 +33,7 @@ Skills: Node.js, Express.js, REST API, PostgreSQL, Typescript.
 
 Description: An image classification AI model.
 Skills: Machine Learning, Image Processing, Python.
+
+## Misc
+
+- See the above folders' respective readmes for instructions on how to get started.
