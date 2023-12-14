@@ -1,0 +1,273 @@
+@use '../global/variables' as *;
+
+.container {
+	height: calc(100vh - $navHeight);
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+
+	padding: 1rem 2rem 2rem;
+}
+
+.title {
+	font-size: 1.75rem;
+	font-weight: 600;
+}
+.subtitle {
+	font-size: 0.75rem;
+	width: 75%;
+	color: $text-secondary;
+
+	margin-bottom: 1.5rem;
+}
+
+.form {
+	display: grid;
+	flex: 1;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 1rem;
+
+	.leftCol {
+		grid-column: 1 / 2;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 1rem;
+	}
+
+	.rightCol {
+		grid-column: 2 / 3;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.bottomBar {
+		grid-column: 1 / 3;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 2px solid $bg-tertiary;
+		gap: 1rem;
+	}
+
+	.instructions {
+		grid-column: 1 / 3;
+		margin-bottom: 0.5rem;
+	}
+}
+
+.formA {
+	@extend .form;
+
+	grid-template-rows: 1fr auto;
+	.bottomBar {
+		& > * {
+			flex: 1;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			font-size: 0.75rem;
+			color: $text-primary;
+			background: $lg-lr;
+			padding: 0.5rem;
+			border-radius: 0.25rem;
+
+			&:first-child {
+				background: $bg-secondary;
+				background: linear-gradient($bg-secondary, $bg-secondary)
+						padding-box,
+					$lg-lr border-box;
+				border: 2px solid transparent;
+			}
+		}
+
+		& > button {
+			color: $text-tertiary;
+			cursor: pointer;
+			&:hover {
+				filter: brightness(80%);
+			}
+		}
+	}
+}
+.formB {
+	@extend .form;
+
+	grid-template-rows: auto 1fr auto;
+	.bottomBar {
+		& > * {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			font-size: 0.75rem;
+			color: $text-primary;
+			background: $lg-lr;
+			padding: 0.5rem;
+			border-radius: 0.25rem;
+
+			&:first-child {
+				background: $bg-secondary;
+				background: linear-gradient($bg-secondary, $bg-secondary)
+						padding-box,
+					$lg-lr border-box;
+				border: 2px solid transparent;
+			}
+		}
+
+		& > button {
+			flex: 1;
+			cursor: pointer;
+			&:hover {
+				filter: brightness(80%);
+			}
+
+			&:nth-child(2) {
+				color: $text-tertiary;
+			}
+		}
+
+		& > div {
+			background: linear-gradient($bg-secondary, $bg-secondary)
+					padding-box,
+				$lg-lr border-box;
+
+			border: 2px solid transparent;
+		}
+	}
+}
+
+.input {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	& > label {
+		font-size: 0.75rem;
+	}
+}
+.fileInput {
+	@extend .input;
+	height: 100%;
+
+	.fileInputContainer {
+		position: relative;
+		width: 100%;
+		flex: 1;
+
+		border-radius: 0.25rem;
+		margin-top: 0.25rem;
+
+		background-color: $bg-primary;
+		color: $text-primary;
+		box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
+
+		display: flex;
+		padding: 0 0.5rem;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+	}
+
+	.fileInputLabel {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+
+		box-sizing: border-box;
+		color: $text-primary;
+		font-size: 0.5rem;
+		cursor: pointer;
+		z-index: 1;
+	}
+
+	.fileInputLabel > *:first-child {
+		fill: $text-primary;
+		height: 2rem;
+	}
+
+	.fileInputBox {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		cursor: pointer;
+		z-index: 2;
+	}
+}
+
+.textInput {
+	@extend .input;
+
+	input,
+	select {
+		height: 2rem;
+		border-radius: 0.25rem;
+		margin-top: 0.25rem;
+
+		background-color: $bg-primary;
+		color: $text-primary;
+		box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
+
+		display: flex;
+		padding: 0 0.5rem;
+	}
+	input::placeholder {
+		opacity: 50%;
+		color: $text-secondary;
+	}
+
+	input:active,
+	input:focus,
+	select:active,
+	select:focus {
+		outline: none;
+
+		background: linear-gradient($bg-primary, $bg-primary) padding-box,
+			$lg-lr border-box;
+		border: 2px solid transparent;
+		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+	}
+}
+
+.selectInput {
+	@extend .textInput;
+
+	select {
+		appearance: none;
+		background-image: url('/icons/chevron-down.svg');
+		fill: $text-primary;
+
+		background-repeat: no-repeat;
+		background-position: right 0.5rem center;
+		background-size: 0.5rem;
+	}
+}
+
+.numberInput {
+	@extend .textInput;
+
+	input {
+		text-align: end;
+	}
+
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		display: none;
+	}
+}

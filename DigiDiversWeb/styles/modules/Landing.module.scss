@@ -1,0 +1,69 @@
+@use '../global/variables' as *;
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	height: calc(100vh - $navHeight);
+	padding: 0 2rem;
+	gap: 1.25rem;
+}
+
+.title {
+	background: $lg-lr;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+	margin-top: 12.5%;
+	font-family: 'Lato';
+	font-weight: 600;
+	font-size: 3rem;
+	width: 50%;
+}
+
+.subtitle {
+	width: 50%;
+
+	color: $text-primary;
+	font-weight: 400;
+	font-family: $font-secondary;
+
+	margin-bottom: 0.5rem;
+}
+
+.launchButton {
+	padding: 0.5rem 1rem;
+	border-radius: $borderRadius;
+
+	font-size: 0.75rem;
+
+	background: $lg-lr;
+	color: $text-tertiary;
+	font-weight: 'bold';
+	filter: brightness(100%);
+
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.launchButton:hover {
+	-webkit-filter: brightness(80%);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+.graphic {
+	position: absolute;
+	right: 6rem;
+	bottom: 50%;
+	transform: translateY(50%);
+
+	width: 40%;
+	height: auto;
+}

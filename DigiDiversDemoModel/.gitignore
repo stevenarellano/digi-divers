@@ -1,0 +1,5 @@
+backflip_images/*
+.env
+
+backflips_model.h5
+misc/*

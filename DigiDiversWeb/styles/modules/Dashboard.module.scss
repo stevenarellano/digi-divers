@@ -1,0 +1,137 @@
+@use '../global/variables' as *;
+
+// Dashboard.module.scss
+.container {
+	display: flex;
+	height: calc(100vh - $navHeight);
+	width: 100%;
+}
+
+.leftColumn {
+	width: 15%;
+	background-color: $bg-primary;
+	box-sizing: border-box;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.leftColumn > * {
+	cursor: pointer;
+	font-size: 0.75rem;
+	padding: 0.5rem;
+
+	height: 2.75rem;
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: flex-start;
+}
+.listItem > *:first-child {
+	height: 50%;
+
+	fill: $text-primary;
+}
+.selected {
+	background-color: $bg-tertiary;
+
+	background: linear-gradient($bg-tertiary, $bg-tertiary) padding-box,
+		$lg-tb border-box;
+	border-left: 3px solid transparent;
+}
+
+.rightColumn {
+	flex: 1;
+
+	background-color: $bg-secondary;
+	box-sizing: border-box;
+	overflow-y: scroll;
+}
+
+// components
+.sectionContainer {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	padding: 1rem;
+
+	display: flex;
+	justify-content: center;
+}
+
+.noOrders {
+	width: 200vw;
+}
+
+.boxArea {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 1rem 5%;
+
+	width: 95%;
+}
+.box {
+	font-size: 0.5rem;
+	width: 30%;
+	height: 8rem;
+	box-sizing: border-box;
+	background: $bg-primary;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding: 0.5rem 0.5rem;
+	box-sizing: border-box;
+	div:first-child {
+		font-size: 1rem;
+		font-weight: 600;
+		background: $lg-lr;
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	div:not(:first-child) {
+		color: $text-secondary;
+	}
+
+	/* Add box shadow */
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.processingBox {
+	@extend .box;
+}
+
+.completedBox {
+	@extend .box;
+
+	button {
+		margin-top: auto;
+		cursor: pointer;
+
+		width: 100%;
+		padding: 0.25rem 0.5rem;
+
+		color: $text-primary;
+		background: linear-gradient($bg-secondary, $bg-secondary) padding-box,
+			$lg-lr border-box;
+		border-radius: 0.25rem;
+		border: 2px solid transparent;
+	}
+
+	button:hover {
+		filter: brightness(80%);
+	}
+}
+
+.addBox {
+	@extend .box;
+
+	font-size: 32px;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+	text-decoration: none;
+}

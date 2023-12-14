@@ -1,0 +1,22 @@
+$bg-primary: #fcfcfc;
+$bg-secondary: #f6f8fc;
+$bg-tertiary: #d9d9d9;
+
+$text-primary: #000000;
+$text-secondary: #808080;
+$text-tertiary: #ffffff;
+
+$theme-primary: #5fb2ca;
+$theme-secondary: #646591;
+
+$lg-lr: linear-gradient(to right, $theme-primary, $theme-secondary);
+$lg-tb: linear-gradient(to bottom, $theme-primary, $theme-secondary);
+
+$background: $bg-primary;
+$text: $text-primary;
+
+$navHeight: 3rem;
+$borderRadius: 0.5rem;
+
+$font-primary: 'Montserrat', sans-serif;
+$font-secondary: 'Lato', sans-serif;

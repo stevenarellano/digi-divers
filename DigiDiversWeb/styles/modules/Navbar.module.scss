@@ -1,0 +1,95 @@
+@use '../global/variables' as *;
+
+.navbar {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 2rem;
+
+	height: $navHeight;
+	padding: 0 2rem;
+}
+
+.navbar > * {
+	font-size: 0.9rem;
+
+	color: $text-primary;
+	text-decoration: none;
+
+	cursor: pointer;
+}
+
+.logo {
+	font-size: 0.9rem;
+
+	color: $text-primary;
+	text-decoration: none;
+
+	cursor: pointer;
+}
+.logo:hover {
+	color: $text-secondary;
+}
+
+.navbar > *:hover {
+	color: $text-secondary;
+}
+
+.navbar > *:nth-child(2) {
+	margin-left: auto;
+}
+
+.dashboardButton {
+	padding: 0.25rem 0.5rem;
+
+	background: linear-gradient($bg-primary, $bg-primary) padding-box,
+		$lg-lr border-box;
+	border-radius: $borderRadius;
+	border: 2px solid transparent;
+}
+
+.dashNav {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 2rem;
+
+	height: $navHeight;
+	border-bottom: solid 1px $bg-tertiary;
+	background-color: $bg-secondary;
+}
+
+.leftCol {
+	background-color: $bg-primary;
+
+	width: 15%;
+	height: 100%;
+	padding: 0 1rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.rightCol {
+	background-color: $bg-secondary;
+
+	flex: 1;
+	height: 100%;
+	padding: 0 1rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.walletButton {
+	background: $lg-lr !important;
+	padding: 0rem 0.5rem !important;
+	height: 1.5rem !important;
+	border-radius: $borderRadius !important;
+}
+
+.walletButton:hover {
+	filter: brightness(80%);
+}
